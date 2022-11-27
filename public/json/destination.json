@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "image": "./images/indonesia.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 2,
+    "image": "./images/maldives.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 3,
+    "image": "./images/switzerland.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 4,
+    "image": "./images/usa.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 5,
+    "image": "./images/indonesia.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 6,
+    "image": "./images/maldives.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  },
+  {
+    "id": 7,
+    "image": "./images/switzerland.jpg",
+    "title": "Nusa Penida",
+    "rating": "Excelent 4.1",
+    "location": "Indonesia",
+    "price": "$99",
+    "tag": "Recommend"
+  }
+]
