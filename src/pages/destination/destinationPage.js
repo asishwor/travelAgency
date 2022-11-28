@@ -71,20 +71,20 @@ function DestinationPage() {
     setCity(filteredCity());
     place !== "Nepal"
       ? setCity((city) => {
+          console.log(place);
           return city.filter((elm) => {
-            setIsFiltered(false);
-            console.log(isFiltered);
-
             return elm.star.toString().includes(e.target.name);
           });
         })
       : setCity(() => {
+          console.log("hotel");
           setIsFiltered(true);
-          console.log(isFiltered);
           return hotel.filter((elm) => {
             return elm.star.toString().includes(e.target.name);
           });
         });
+    console.log(city);
+
     for (let item in inputRef.current) {
       inputRef.current[item].checked = false;
       e.target.checked = true;
@@ -189,7 +189,7 @@ function DestinationPage() {
         </div>
 
         <div className="hotelList">
-          {isFiltered
+          {place !== "Nepal" || isFiltered
             ? city.map((elm) => {
                 const {
                   HotelName,
