@@ -1,14 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Fade } from "react-awesome-reveal";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { NewDestinations } from "../../Components/hotelCatagory/kathmandu/Kathmandu.style";
 import Search from "../../Components/search/Search";
 import { AiFillCaretDown, AiFillStar } from "react-icons/ai";
 import { HiLocationMarker } from "react-icons/hi";
 import { DestinationCatagory } from "../../Components/PopularDestination/PopularDestination.style";
+import { ChangeCity } from "../../UseCity";
 
-function DestinationPage() {
+function DestinationPage(props) {
   // Destination catagory data
+  const stateChange = useContext(ChangeCity);
+  const place = stateChange[0];
+  const setPlace = stateChange[1];
+
   const destinationName = [
     {
       place: "Kathmandu",
@@ -31,11 +35,13 @@ function DestinationPage() {
       image: "./images/nagarkot.jpg",
     },
   ];
+
   const [hotel, setHotel] = useState([]);
   const [city, setCity] = useState([]);
-  const [place, setPlace] = useState("Nepal");
-  const [isFiltered, setIsFiltered] = useState(false);
+  // const [place, setPlace] = useState("Nepal");
+  const [isFiltered, setIsFiltered] = useState(true);
   const headingRef = useRef(null);
+
   //fetching hotel data using usestate
   useEffect(() => {
     KathmanduHotel();
@@ -71,19 +77,16 @@ function DestinationPage() {
     setCity(filteredCity());
     place !== "Nepal"
       ? setCity((city) => {
-          console.log(place);
           return city.filter((elm) => {
             return elm.star.toString().includes(e.target.name);
           });
         })
       : setCity(() => {
-          console.log("hotel");
           setIsFiltered(true);
           return hotel.filter((elm) => {
             return elm.star.toString().includes(e.target.name);
           });
         });
-    console.log(city);
 
     for (let item in inputRef.current) {
       inputRef.current[item].checked = false;

@@ -1,0 +1,5 @@
+condition 👍1.
+
+1.place == Nepal
+2.isfilter = true 1st false
+3. hotel filter
