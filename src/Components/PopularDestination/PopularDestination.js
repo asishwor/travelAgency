@@ -18,7 +18,7 @@ function PopularDestination() {
     );
   }, []);
 
-  //popular destionations
+  //popular destinations
 
   return (
     <PopularDestinationContainer>
@@ -33,7 +33,7 @@ function PopularDestination() {
           </Link>
         </PopularDestinationHEading>
 
-        {/* popular destination catagory  */}
+        {/* popular destination Category  */}
 
         <DestinationGrid>
           {gridContent.map((elm) => {

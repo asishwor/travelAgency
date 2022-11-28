@@ -8,31 +8,6 @@ import { HiLocationMarker } from "react-icons/hi";
 import { DestinationCatagory } from "../../Components/PopularDestination/PopularDestination.style";
 
 function DestinationPage() {
-  const [hotel, setHotel] = useState([]);
-  const [city, setCity] = useState([]);
-  const [place, setPlace] = useState("nepal");
-
-  //fetching hotel data using usestate
-  useEffect(() => {
-    KathmanduHotel();
-  }, [place]);
-  const KathmanduHotel = () => {
-    fetch("./json/recommended.json")
-      .then((res) => res.json())
-      .then((data) => setHotel(data))
-      .catch((err) => console.log(err.message));
-  };
-
-  // filter hotel by location and city name
-  useEffect(() => {
-    setCity(() => {
-      return filterdCity;
-    });
-  }, [place]);
-  const filterdCity = hotel.filter((el) => {
-    return el.city.toLocaleLowerCase() === place.toLocaleLowerCase();
-  });
-
   // Destination catagory data
   const destinationName = [
     {
@@ -56,6 +31,33 @@ function DestinationPage() {
       image: "./images/nagarkot.jpg",
     },
   ];
+  const [hotel, setHotel] = useState([]);
+  const [city, setCity] = useState([]);
+  const [place, setPlace] = useState("Nepal");
+  const [isFiltered, setIsFiltered] = useState(false);
+  const headingRef = useRef(null);
+  //fetching hotel data using usestate
+  useEffect(() => {
+    KathmanduHotel();
+  }, [place]);
+  const KathmanduHotel = () => {
+    fetch("./json/recommended.json")
+      .then((res) => res.json())
+      .then((data) => setHotel(data))
+      .catch((err) => console.log(err.message));
+  };
+  //filtered city
+  const filteredCity = () => {
+    return hotel.filter((items) => {
+      return items.city.toLowerCase().includes(place.toLowerCase());
+    });
+  };
+
+  // filter hotel by location and city name
+  useEffect(() => {
+    setCity(filteredCity());
+  }, [place]);
+
   // using useref hook for checkbox
   const inputRef = useRef({
     "4star": "",
@@ -64,12 +66,32 @@ function DestinationPage() {
     "2star": "",
     "1star": "",
   });
-  for (let key in inputRef.current) {
-    inputRef.current[key].addEventListener("change");
-  }
-  useEffect(() => {
-    console.log(inputRef.current);
-  }, []);
+  // star  filter 'array
+  const onChangeHandle = (e) => {
+    setCity(filteredCity());
+    place !== "Nepal"
+      ? setCity((city) => {
+          return city.filter((elm) => {
+            setIsFiltered(false);
+            console.log(isFiltered);
+
+            return elm.star.toString().includes(e.target.name);
+          });
+        })
+      : setCity(() => {
+          setIsFiltered(true);
+          console.log(isFiltered);
+          return hotel.filter((elm) => {
+            return elm.star.toString().includes(e.target.name);
+          });
+        });
+    for (let item in inputRef.current) {
+      inputRef.current[item].checked = false;
+      e.target.checked = true;
+    }
+  };
+  //heading change in
+
   return (
     <NewDestinations>
       <Search />
@@ -91,9 +113,9 @@ function DestinationPage() {
           );
         })}
       </DestinationCatagory>
-      <h2 style={{ margin: "40px 0" }}>{`${
-        city.length !== 0 ? city.length : hotel.length
-      } best hotel in ${place}`}</h2>
+      <h2 style={{ margin: "40px 0" }} ref={headingRef}>{`${
+        place !== "Nepal" || isFiltered ? city.length : hotel.length
+      } Best hotel in ${place}`}</h2>
       <div className="content">
         <div className="filters">
           <div className="star-filter">
@@ -103,15 +125,7 @@ function DestinationPage() {
                 type="checkbox"
                 name="5"
                 ref={(el) => (inputRef.current["5star"] = el)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCity((city) =>
-                      city.filter((el) => el.star.toString() === e.target.name)
-                    );
-                  } else {
-                    setCity(filterdCity);
-                  }
-                }}
+                onChange={(item) => onChangeHandle(item)}
               />
               <span>5 star</span>
             </div>
@@ -120,15 +134,7 @@ function DestinationPage() {
                 type="checkbox"
                 name="4"
                 ref={(el) => (inputRef.current["4star"] = el)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCity((city) =>
-                      city.filter((el) => el.star.toString() === e.target.name)
-                    );
-                  } else {
-                    setCity(filterdCity);
-                  }
-                }}
+                onChange={(item) => onChangeHandle(item)}
               />
               <span>4 star</span>
             </div>
@@ -137,15 +143,7 @@ function DestinationPage() {
                 type="checkbox"
                 name="3"
                 ref={(el) => (inputRef.current["3star"] = el)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCity((city) =>
-                      city.filter((el) => el.star.toString() === e.target.name)
-                    );
-                  } else {
-                    setCity(filterdCity);
-                  }
-                }}
+                onChange={(item) => onChangeHandle(item)}
               />
               <span>3 star</span>
             </div>
@@ -154,15 +152,7 @@ function DestinationPage() {
                 type="checkbox"
                 name="2"
                 ref={(el) => (inputRef.current["2star"] = el)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCity((city) =>
-                      city.filter((el) => el.star.toString() === e.target.name)
-                    );
-                  } else {
-                    setCity(filterdCity);
-                  }
-                }}
+                onChange={(item) => onChangeHandle(item)}
               />
               <span>2 star</span>
             </div>
@@ -171,15 +161,7 @@ function DestinationPage() {
                 type="checkbox"
                 name="1"
                 ref={(el) => (inputRef.current["1star"] = el)}
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setCity((city) =>
-                      city.filter((el) => el.star.toString() === e.target.name)
-                    );
-                  } else {
-                    setCity(filterdCity);
-                  }
-                }}
+                onChange={(item) => onChangeHandle(item)}
               />
               <span>1 star</span>
             </div>
@@ -207,7 +189,7 @@ function DestinationPage() {
         </div>
 
         <div className="hotelList">
-          {city.length != 0
+          {isFiltered
             ? city.map((elm) => {
                 const {
                   HotelName,
