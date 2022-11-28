@@ -4,9 +4,6 @@ const ChangeCity = createContext();
 
 const UseCity = ({ children }) => {
   const [places, setPlaces] = useState("nepal");
-  const user = {
-    name: "john",
-  };
 
   useEffect(() => {
     searchDestinations();

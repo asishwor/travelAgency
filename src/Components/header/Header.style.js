@@ -45,7 +45,7 @@ export const List = styled.ul`
   }
 `;
 export const Logo = styled.img`
-  height: 70px;
+  height: 40px;
   width: 200px;
   object-fit: contain;
 `;
