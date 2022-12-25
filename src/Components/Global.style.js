@@ -20,15 +20,15 @@ export const GLobalStyle = createGlobalStyle`
     --fs-600:42px;
     --fs-700:52px;
     --fs-800:65px;
-    --transition:all .4s  cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    --transition:all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 body.dark {
-  --clr-primary: #a3c7d6;
+  --clr-primary: #3D2C8D;
   --clr-secondary: #a5c9ca;
-  --body-bg: #04293a;
+  --body-bg: #2C394B;
   --heading-font-color: #eeeeee;
   --body-font-color: #ededed;
-  --section-bg: #3e2c41;
+  --section-bg: #3E065F;
   --clr-white: #ffffff;
   --testimonials-bg: #1597bb;
   --ratings-color: #fef70d;
@@ -49,6 +49,17 @@ h1,h2,h3,h4{
     font-weight: 700;
 
 }
+
+@media (max-width:992px) {
+    
+    h2{
+    font-size: 32px !important;
+}
+h1{
+    font-size: 38px !important;
+}
+        
+    }
 *{
     margin: 0;
     padding: 0;
@@ -68,7 +79,10 @@ button{
         background-color: var(--secondary-bg);
         border: 1px solid var(--clr-primary);
         color: var(--clr-primary);
-      transition: var(--transition);
+      transition:all 250ms var(--transition);
+    }
+    @media (max-width:992px) {
+        
     }
 }
 img{
@@ -85,18 +99,18 @@ h2{
 a{
     text-decoration: none;
     color: inherit;
-    transition: all .4s  cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: .5px;
     &:hover{
         color: var(--clr-primary);
-        transition: all .4s  cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        transition: all 250ms var(--transition);
         text-decoration:2px underline;
         text-underline-offset: 10px;
     }
 }
 .active{
         color: var(--clr-primary);
-        transition: all .4s  cubic-bezier(0.6, 0.04, 0.98, 0.335);
+        transition: all 250ms var(--transition);
         text-decoration:2px underline;
         text-underline-offset: 10px;
     }

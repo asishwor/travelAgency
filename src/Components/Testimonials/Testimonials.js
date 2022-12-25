@@ -49,6 +49,16 @@ function Testimonials() {
             spaceBetween={30}
             loop={true}
             style={{ paddingTop: "60px" }}
+            breakpoints={{
+              768: {
+                width: 768,
+                slidesPerView: 2,
+              },
+              0: {
+                width: 500,
+                slidesPerView: 1,
+              },
+            }}
           >
             {testimonials.map((elm) => {
               const { image, id, name, Content } = elm;

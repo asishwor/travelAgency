@@ -31,8 +31,9 @@ export const TestimonialsCard = styled.div`
   transition: var(--transition);
 
   &:hover {
-    background-color: var(--clr-primary);
+    background-color: var(--navbar-bg);
     transition: var(--transition);
+    color: var(--body-bg);
     translate: 0 -10px;
 
     .name {

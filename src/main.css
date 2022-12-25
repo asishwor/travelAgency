@@ -1,0 +1,11 @@
+.fixed{
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--clr-white);
+    color: rgb(9, 0, 0);
+    font-weight: 700 !important;
+    padding:  20px !important;
+}

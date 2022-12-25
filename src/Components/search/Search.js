@@ -81,7 +81,7 @@ export default function Search() {
             <Label className="label">When start?</Label>
           </InputWrapper>
 
-          <button type="submit" onClick={OnsubmitHandle}>
+          <button type="submit" className="search-btn" onClick={OnsubmitHandle}>
             Search places
           </button>
         </Fade>

@@ -10,7 +10,7 @@ import {
 
 export default function Hero() {
   return (
-    <Container>
+    <>
       <BannerContainer>
         <Overlay />
         <BannerHeading>
@@ -31,6 +31,6 @@ export default function Hero() {
           </button>
         </BannerButton>
       </BannerContainer>
-    </Container>
+    </>
   );
 }

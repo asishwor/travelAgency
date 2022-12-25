@@ -25,7 +25,7 @@ export default function Destination() {
       .then((data) => setDest(data));
   }, []);
   return (
-    <BgSection>
+    <BgSection style={{ overflow: "hidden" }}>
       <DestinationContainer>
         <Fade cascade direction="left" delay={500} triggerOnce={true}>
           <HeadingContainer>
@@ -51,6 +51,16 @@ export default function Destination() {
           navigation={true}
           modules={[Pagination, Navigation]}
           className="mySwiper"
+          breakpoints={{
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+            0: {
+              width: 550,
+              slidesPerView: 1,
+            },
+          }}
         >
           {dest.map((data) => {
             const { image, title, rating, location, price, tag, id } = data;

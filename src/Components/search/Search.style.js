@@ -9,6 +9,19 @@ export const Form = styled.form`
   padding: 20px 30px 15px 30px;
   margin: 0 auto;
   box-shadow: 0 20px 30px #0001;
+  @media (max-width: 992px) {
+    padding-top: 71px;
+    width: auto;
+    overflow-x: scroll;
+  }
+
+  .search-btn {
+    @media (max-width: 992px) {
+      padding: 16px 0;
+      text-align: center;
+      width: 150px;
+    }
+  }
 `;
 export const Input = styled.input`
   font-size: var(--fs-200);
@@ -30,4 +43,5 @@ export const IconWrapper = styled.div`
 `;
 export const SearchContainer = styled(Container)`
   padding-bottom: 80px;
+ 
 `;

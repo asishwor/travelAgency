@@ -9,6 +9,7 @@ export const CtaContainer = styled(Container)`
   overflow: hidden;
   /* flex-wrap: wrap; */
   align-items: center;
+
   .left {
     width: 50%;
     padding-left: 100px;
@@ -75,6 +76,21 @@ export const CtaContainer = styled(Container)`
         grid-column: 2/3;
         width: 100%;
       }
+    }
+  }
+  @media (max-width: 992px) {
+    flex-direction: column;
+    padding: 60px 20px;
+    .left {
+      width: 100%;
+      padding-left: 0;
+    }
+    .right {
+      width: 100%;
+      translate: 0;
+      margin-top: 50px;
+
+      transform: rotateZ(0);
     }
   }
 `;

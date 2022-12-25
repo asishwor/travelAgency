@@ -1,14 +1,17 @@
 import styled from "styled-components";
+import { Container } from "../Container.style";
 import { ButtonContainer } from "../header/Header.style";
 
-export const BannerContainer = styled.div`
-  padding-top: 80px;
+export const BannerContainer = styled(Container)`
+  padding-top: 100px;
   position: relative;
   z-index: 3;
-  background: url(./images/banner.jpg);
+  background: url(./images/banner.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  @media (max-width: 992px) {
+  }
 `;
 export const BannerHeading = styled.h1`
   font-size: var(--fs-600);
@@ -30,8 +33,8 @@ export const Overlay = styled.div`
   height: 100%;
   width: 100%;
   z-index: -1;
-  background: linear-gradient(to bottom, #50c8c4, #99f3d3);
-  opacity: 0.4;
+  background: linear-gradient(to bottom, #000, #000);
+  opacity: 0.7;
 `;
 export const BannerButton = styled(ButtonContainer)`
   justify-content: center;

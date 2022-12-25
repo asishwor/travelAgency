@@ -1,85 +1,92 @@
+import { FaBars, FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 
-export const Nav = styled.nav`
+export const HeaderStyles = styled.header`
+  width: 100%;
+  padding: 12px 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-  transform: var(--transition);
-  /* background-color: ${(props) =>
-    props.footer ? "transparent" : "var(--navbar-bg)"}; */
-
-  &.sticky-nav {
-    position: fixed;
-    top: 0;
-    padding: 0 20px;
-    margin: 0 auto;
-    width: 100%;
-    z-index: 999;
-    background-color: ${(props) =>
-      props.footer ? "transparent" : "var(--navbar-bg)"};
-    left: 0;
-    right: 0;
-    color: var(--clr-white);
-    box-shadow: 0 5px 20px #000000;
-    transform: var(--transition);
-    button {
-      color: var(--clr-white) !important;
-    }
+  position: relative;
+  z-index: 999;
+  background-color: var(--clr-white);
+  box-shadow: 0 10px 30px 25px #0004;
+  @media (max-width: 991px) {
+    justify-content: space-between;
   }
 `;
 
-export const List = styled.ul`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: var(--fs-200);
-  & > li {
-    margin-right: 30px;
-    &:nth-of-type(4) {
-      margin-right: 0px;
-    }
-    a {
-      padding: 10px 23px;
-    }
+export const MenuHide = styled(FaTimes)`
+  @media (min-width: 992px) {
+    display: none;
   }
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 1000;
+`;
+
+export const MenuShow = styled(FaBars)`
+  @media (min-width: 992px) {
+    display: none;
+  }
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 100;
 `;
 export const Logo = styled.img`
-  height: 40px;
-  width: 200px;
-  object-fit: contain;
+  width: 50px;
+  margin-right: 50px;
+  z-index: 100;
 `;
-export const ButtonContainer = styled.div`
+export const Nav = styled.div`
+  @media (max-width: 991px) {
+    display: none;
+  }
   display: flex;
+  flex-grow: 1;
   align-items: center;
-  & > a:nth-of-type(1) button {
-    background-color: transparent;
-    color: var(--clr-primary);
+  ul {
+    display: flex;
+    gap: 25px;
+    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 `;
-export const ToggleTheme = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${(props) =>
-    props.dark ? "var(--body-bg)" : "var(--clr-primary)"};
-  padding: 10px;
-  border-radius: 30px;
-  font-size: 30px;
-  cursor: pointer;
+// mobile naviagtion
+export const MobileNav = styled.div`
+  position: absolute;
+  padding: 40px 30px;
+  background-color: #fff;
+  height: 0;
+  left: 0;
+  opacity: 0;
+  top: 62px;
   overflow: hidden;
-  box-shadow: inset 0 0 5px #0004;
+  width: 100%;
+  transform-origin: top;
+  transition: all 350ms linear;
+  box-shadow: -0px 0 0px 0px  #0001,   0 32px 30px #0007;
 
-  .mode {
-    transition: all 0.7s linear;
-
-    &:nth-of-type(1) {
-      translate: ${(props) => (props.dark ? "-130%" : "90%")};
-
-      transition: all 0.7s linear;
-    }
-    &:nth-of-type(2) {
-      translate: ${(props) => (props.dark === false ? "-230%" : 0)};
-      transition: all 0.7s linear;
-    }
+  &.toggle {
+    height: 310px;
+    translate: 0;
+    opacity: 1;
+    transition: all 350ms linear;
+    box-shadow: none;
+  }
+  li {
+    padding: 20px 0px 4px 5px;
+    border-bottom: 2px solid #0001;
+    font-weight: 700;
   }
 `;
+export const Button = styled.button`
+  background-color: ${(props) =>
+    props.variant === "primary" ? "var(--clr-primary)" : "var(--clr-white)"};
+  color: ${(props) =>
+    props.variant === "primary" ? "var(--clr-white)" : "var(--clr-primary)"};
+  border: 1px solid var(--clr-primary);
+  &:hover {
+    background: var(--ratings-color);
+  }
+`;
+export const ButtonContainer = styled.button``;
+export const List = styled.ul``;

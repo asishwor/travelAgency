@@ -83,7 +83,6 @@ export const DestinationContainer = styled(SearchContainer)`
   .swiper-pagination-bullet {
     height: 16px;
     background-color: var(--clr-primary);
-
     width: 16px;
   }
 `;
@@ -95,15 +94,22 @@ export const HeadingContainer = styled.div`
   margin: 0 auto;
   width: fit-content;
   margin-bottom: 30px;
+  @media (max-width: 992px) {
+    width:calc(100% - 70px) ;
+  }
   h2 {
     text-align: center;
     display: inline-block;
+    line-height: 1.2;
     font-size: var(--fs-700);
 
     .color {
       color: var(--clr-primary);
       font-size: var(--fs-700);
       font-weight: 700;
+      @media (max-width: 992px) {
+        font-size: 32px;
+      }
     }
   }
   & > span {
