@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Button,
   HeaderStyles,
@@ -37,8 +37,7 @@ export default function Header() {
     setstart((st) => {
       return { ...st, st: top, end: st.st };
     });
-    return window.removeEventListener("scroll", ()=>{
-  });
+    return window.removeEventListener("scroll", () => {});
   }, [top, fixed]);
   return (
     <>
@@ -47,19 +46,16 @@ export default function Header() {
         <Nav>
           <List>
             <li>
-              <Link to="">Home</Link>
+              <NavLink to="/location">Location</NavLink>
             </li>
             <li>
-              <Link to="">About Us</Link>
+              <NavLink to="/about">About Us</NavLink>
             </li>
             <li>
-              <Link to="">Destination</Link>
+              <NavLink to="/booking">Booking</NavLink>
             </li>
             <li>
-              <Link to="">Services</Link>
-            </li>
-            <li>
-              <Link to="">Contact Us</Link>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </List>
           <div style={{ display: "flex", gap: "10px", marginLeft: "auto" }}>
@@ -74,19 +70,16 @@ export default function Header() {
         <MobileNav className={isActive ? "toggle" : ""} toggle={isActive}>
           <ul>
             <li>
-              <Link to="">Home</Link>
+              <NavLink  onClick={() => setIsActive(false)} to="/location">Location</NavLink>
             </li>
             <li>
-              <Link to="">About Us</Link>
+              <NavLink  onClick={() => setIsActive(false)}  to="/about">About Us</NavLink>
             </li>
             <li>
-              <Link to="">Destination</Link>
+              <NavLink  onClick={() => setIsActive(false)} to="/booking">Booking</NavLink>
             </li>
             <li>
-              <Link to="">Services</Link>
-            </li>
-            <li>
-              <Link to="">Contact Us</Link>
+              <NavLink  onClick={() => setIsActive(false)} to="/contact">Contact</NavLink>
             </li>
           </ul>
           {/* <div style={{ display: "flex", gap: "10px" }}>
@@ -107,18 +100,7 @@ export default function Header() {
           </NavLink>
           <Nav>
             <List>
-              <li>
-                <NavLink to="/location">Location</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">About Us</NavLink>
-              </li>
-              <li>
-                <NavLink to="/booking">Booking</NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact">Contact</NavLink>
-              </li>
+              
             </List>
             <div style={{ display: "flex" }}>
               <ButtonContainer>

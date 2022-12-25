@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "../Container.style";
+import { Button, ButtonContainer } from "../header/Header.style";
 import {
   BannerButton,
   BannerContainer,
@@ -20,15 +21,14 @@ export default function Hero() {
           We are ready to accompany you anytime anywhere to explore this .
         </BannerContent>
         <BannerButton>
-          <button>
-            {" "}
+          <Button>
             <img src="./images/treeclip.svg" alt="" />
             Vacation
-          </button>
-          <button>
+          </Button>
+          <Button>
             {" "}
             <img src="./images/mountainclip.png" alt="" /> Adventure
-          </button>
+          </Button>
         </BannerButton>
       </BannerContainer>
     </>

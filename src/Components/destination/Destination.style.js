@@ -10,6 +10,9 @@ export const DestinationContainer = styled(SearchContainer)`
     top: 93%;
     padding: 0px 22px 1px 22px;
     z-index: 2;
+    @media(max-width:700px){
+      opacity:0;
+    }
     &.swiper-button-disabled {
       position: absolute;
       z-index: 120;

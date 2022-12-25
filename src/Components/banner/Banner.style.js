@@ -36,9 +36,11 @@ export const Overlay = styled.div`
   background: linear-gradient(to bottom, #000, #000);
   opacity: 0.7;
 `;
-export const BannerButton = styled(ButtonContainer)`
+export const BannerButton = styled.div`
   justify-content: center;
   margin-top: 200px;
+  display: flex;
+  margin-bottom: -3px;
   & > button:nth-of-type(1) {
     background-color: var(--clr-secondary);
     font-weight: 500;
@@ -52,6 +54,11 @@ export const BannerButton = styled(ButtonContainer)`
   button {
     position: relative;
     padding-left: 48px;
+    border:none;
+
+    @media (max-width:991px){
+      width:200px;
+    }
   }
   button img {
     position: absolute;

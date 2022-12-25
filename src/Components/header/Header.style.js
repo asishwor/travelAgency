@@ -63,7 +63,7 @@ export const MobileNav = styled.div`
   width: 100%;
   transform-origin: top;
   transition: all 350ms linear;
-  box-shadow: -0px 0 0px 0px  #0001,   0 32px 30px #0007;
+  box-shadow: -0px 0 0px 0px #0001, 0 32px 30px #0007;
 
   &.toggle {
     height: 310px;
@@ -88,5 +88,5 @@ export const Button = styled.button`
     background: var(--ratings-color);
   }
 `;
-export const ButtonContainer = styled.button``;
+export const ButtonContainer = styled.div``;
 export const List = styled.ul``;
